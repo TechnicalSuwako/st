@@ -105,6 +105,26 @@ float alpha = 0.8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
+#if defined(__OpenBSD__)
+	"#12120f", // black
+	"#b8b515", // red
+	"#f1ed25",
+	"#f1ed25",
+	"#f1ed25",
+	"#ecea71", // magenta
+	"#f1ed25",
+	"#f1ed25",
+
+	/* /1* 8 bright colors *1/ */
+	"#44443b", // black
+	"#ecea71", // red
+	"#f1ed25",
+	"#f1ed25",
+	"#f1ed25",
+	"#ecea71", // magenta
+	"#f1ed25",
+	"#f1ed25",
+#elif defined(__FreeBSD__)
 	"#120f0f", // black
 	"#b61729", // red
 	"#ee4030",
@@ -113,14 +133,6 @@ static const char *colorname[] = {
 	"#f35869", // magenta
 	"#ee4030",
 	"#ee4030",
-	/* "#120f0f", // black */
-	/* "#b61729", // red */
-	/* "#2c980c", // green */
-	/* "#b8b515", // yellow */
-	/* "#1a6efc", // blue */
-	/* "#c016c6", // magenta */
-	/* "#1cbcd0", // cyan */
-	/* "#cfcbcb", // white */
 
 	/* /1* 8 bright colors *1/ */
 	"#443b3b", // black
@@ -131,22 +143,20 @@ static const char *colorname[] = {
 	"#f35869", // magenta
 	"#ee4030",
 	"#ee4030",
-	/* "#443b3b", // black */
-	/* "#f35869", // red */
-	/* "#6cf344", // green */
-	/* "#ecea71", // yellow */
-	/* "#6aa6eb", // blue */
-	/* "#ea79d8", // magenta */
-	/* "#8ae5ff", // cyan */
-	/* "#fcfcfc", // white */
+#endif
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
+#if defined(__OpenBSD__)
+	"#f1ed25", /* default foreground colour */
+	"#12120f", /* default background colour */
+#elif defined(__FreeBSD__)
 	"#ee4030", /* default foreground colour */
 	"#120f0f", /* default background colour */
+#endif
 };
 
 
