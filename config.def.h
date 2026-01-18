@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "Liberation Mono:pixelsize=16:antialias=true:autohint=true";
-static char *font = "Noto Sans CJK:pixelsize=16:antialias=true:autohint=true";
+static char *font = "mono:pixelsize=16:antialias=true:autohint=true";
 static char *font2[] = {
 	"Noto Sans CJK:pixelsize=16",
 	// "DejaVuSansM Nerd Font:pixelsize=16",

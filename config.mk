@@ -25,11 +25,12 @@ PKG_CONFIG = pkg-config
 .if "$(UNAME)" == "OpenBSD"
 INCS = -I$(X11INC) -I$(FREETYPE) \
 				-I/usr/include/freetype2 \
+				-L/usr/local/include \
        `$(PKG_CONFIG) --cflags fontconfig` \
        `$(PKG_CONFIG) --cflags freetype2`
 CPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600 -D_BSD_SOURCE
-LIBS = -L$(X11LIB) -static -lm -lX11 -lutil -lXft \
-			 -lfontconfig -lfreetype -lc -lxcb -lpthread -lz -lexpat \
+LIBS = -L$(X11LIB) -L/usr/local/lib -static -lm -lX11 -lutil -lXft \
+			 -lfontconfig -lfreetype -lc -lxcb -lpthread -lpng16 -lz -lexpat \
 			 -lXrender -lXau -lXdmcp
 MANPREFIX = ${PREFIX}/man
 .elif "$(UNAME)" == "FreeBSD"
